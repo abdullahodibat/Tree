@@ -43,7 +43,7 @@ public class Application {
         }
 
         /**
-         * Min-Heap
+         * Graph
          */
 
         Graph graph = new Graph();
