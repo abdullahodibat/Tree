@@ -18,16 +18,35 @@ public class Graph {
         }
     }
 
+    /**
+     * Get Node by id
+     *
+     * @param id
+     * @return
+     */
     public Node getNode(int id) {
         return nodes.get(id);
     }
 
+    /**
+     * add edge between two nodes
+     *
+     * @param source
+     * @param destination
+     */
     public void addEdge(int source, int destination) {
         Node s = getNode(source);
         Node d = getNode(destination);
         s.adjacents.add(d);
     }
 
+    /**
+     * check if there is a path between two nodes using DFS(recursive)
+     *
+     * @param source
+     * @param destincation
+     * @return
+     */
     public boolean hasPathDFS(int source, int destincation) {
         Node s = getNode(source);
         Node d = getNode(destincation);
@@ -35,6 +54,13 @@ public class Graph {
         return hasPathDFS(s, d, visited);
     }
 
+    /**
+     * check if there is a path between two nodes using DFS(stack)
+     *
+     * @param source
+     * @param destincation
+     * @return
+     */
     public boolean hasPathDFSStack(int source, int destincation) {
         Node s = getNode(source);
         Node d = getNode(destincation);
@@ -42,6 +68,13 @@ public class Graph {
         return hasPathDFSStack(s, d, visited);
     }
 
+    /**
+     * check if there is a path between two nodes using BFS
+     *
+     * @param source
+     * @param destincation
+     * @return
+     */
     public boolean hasPathBFS(int source, int destincation) {
         Node s = getNode(source);
         Node d = getNode(destincation);
@@ -50,6 +83,13 @@ public class Graph {
     }
 
 
+    /**
+     * check if there is a path between two nodes using DFS(recursive)
+     *
+     * @param source
+     * @param destincation
+     * @return
+     */
     public boolean hasPathDFS(Node source, Node destincation, Set<Integer> visited) {
         if (visited.contains(source.id)) return false;
         visited.add(source.id);
@@ -62,7 +102,13 @@ public class Graph {
 
     }
 
-
+    /**
+     * check if there is a path between two nodes using BFS
+     *
+     * @param source
+     * @param destincation
+     * @return
+     */
     public boolean hasPathBFS(Node source, Node destincation, Set<Integer> visited) {
         Queue<Node> nodes = new LinkedList<>();
         if (!visited.contains(source.id)) {
@@ -80,7 +126,13 @@ public class Graph {
         return false;
     }
 
-
+    /**
+     * check if there is a path between two nodes using DFS(stack)
+     *
+     * @param source
+     * @param destincation
+     * @return
+     */
     public boolean hasPathDFSStack(Node source, Node destincation, Set<Integer> visited) {
         Stack<Node> nodes = new Stack<>();
         if (!visited.contains(source.id)) {

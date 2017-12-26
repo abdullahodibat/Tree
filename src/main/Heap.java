@@ -4,6 +4,7 @@ import java.util.Arrays;
 
 /**
  * Created by abdullahodibat on 26.12.17.
+ * Implementation of Min-Heap
  */
 public class Heap {
     int capacity;
@@ -61,6 +62,11 @@ public class Heap {
         this.arr = new int[capacity];
     }
 
+    /**
+     * remove the smalles elemnt from heap
+     *
+     * @return
+     */
     public int poll() {
         if (size == 0) throw new IllegalStateException("arr is empty");
         else {
@@ -72,6 +78,11 @@ public class Heap {
         }
     }
 
+    /**
+     * insert new value into heap
+     *
+     * @param value
+     */
     public void insert(int value) {
         checkCapacity();
         arr[size] = value;
@@ -79,6 +90,10 @@ public class Heap {
         upHeapfy();
     }
 
+
+    /**
+     * fix heap after adding new element
+     */
     public void upHeapfy() {
         int index = size - 1;
         while (hasParent(index) && getParent(index) > arr[index]) {
@@ -89,6 +104,9 @@ public class Heap {
         }
     }
 
+    /**
+     * fix heap after polling smalles element
+     */
     public void downHeapfy() {
         int index = 0;
         while (hasLeftChild(index)) {

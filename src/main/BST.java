@@ -6,6 +6,7 @@ import java.util.Stack;
 
 /**
  * Created by abdullahodibat on 25.12.17.
+ * Binary Search Tree
  */
 public class BST {
     private class Node {
@@ -24,6 +25,11 @@ public class BST {
         root = null;
     }
 
+    /**
+     * insert new item into binary tree
+     *
+     * @param value
+     */
     public void insert(int value) {
         if (root == null)
             root = new Node(value);
@@ -48,6 +54,12 @@ public class BST {
         }
     }
 
+    /**
+     * check if the tree contains a value
+     *
+     * @param value
+     * @return boolean
+     */
     public boolean contains(int value) {
         if (root == null) return false;
         else return contains(value, root);
@@ -64,10 +76,18 @@ public class BST {
         }
     }
 
+    /**
+     * Breadth First Travers
+     */
     public void BFS() {
         BFS(root);
     }
 
+    /**
+     * Breadth First Traverse
+     *
+     * @param node starting node
+     */
     public void BFS(Node node) {
         Queue<Node> q = new LinkedList<>();
         if (node == null)
@@ -83,14 +103,30 @@ public class BST {
         }
     }
 
+    /**
+     * Return maxDepth of a tree
+     *
+     * @return
+     */
     public int maxDepth() {
         return maxDepth(root);
     }
 
+    /**
+     * Return minimum dpth of the tree
+     *
+     * @return
+     */
     public int minDepth() {
         return minDepth(root);
     }
 
+    /**
+     * Return minimum dpth of the tree
+     *
+     * @param node
+     * @return
+     */
     int minDepth(Node node) {
         if (node == null)
             return 0;
@@ -108,6 +144,12 @@ public class BST {
                 minDepth(node.right)) + 1;
     }
 
+    /**
+     * Return maxDepth of a tree
+     *
+     * @param node
+     * @return
+     */
     int maxDepth(Node node) {
         if (node == null)
             return 0;
@@ -125,10 +167,18 @@ public class BST {
                 maxDepth(node.right)) + 1;
     }
 
+    /**
+     * Depth First Travers
+     */
     public void DFS() {
         if (root != null) DFS(root);
     }
 
+    /**
+     * Depth First Travers (using stack)
+     *
+     * @param root
+     */
     private void DFS(Node root) {
         Stack<Node> s = new Stack<>();
         Node node = root;
@@ -151,36 +201,66 @@ public class BST {
         }
     }
 
+    /**
+     * In-Order Depth First Travers(recursive)
+     */
     public void inOrder() {
         if (root != null) inOrder(root);
     }
 
+    /**
+     * In-Order Depth First Travers(recursive)
+     *
+     * @param node starting node
+     */
     private void inOrder(Node node) {
         if (node.left != null) inOrder(node.left);
         System.out.println(node.data + ",");
         if (node.right != null) inOrder(node.right);
     }
 
+    /**
+     * Pre-Order Depth First Travers(recursive)
+     */
     public void preOrder() {
         if (root != null) preOrder(root);
     }
 
+    /**
+     * Pre-order DFS(recursive)
+     *
+     * @param node starting node
+     */
     private void preOrder(Node node) {
         System.out.println(node.data + ",");
         if (node.left != null) inOrder(node.left);
         if (node.right != null) inOrder(node.right);
     }
 
+    /**
+     * Pots-Order Traverse(recursive)
+     */
     public void postOrder() {
         if (root != null) postOrder(root);
     }
 
+    /**
+     * Post-Order Travers(recursive)
+     *
+     * @param node starting node
+     */
     private void postOrder(Node node) {
         if (node.right != null) inOrder(node.right);
         if (node.left != null) inOrder(node.left);
         System.out.println(node.data + ",");
     }
 
+    /**
+     * Minimum value in a tree
+     *
+     * @param node
+     * @return
+     */
     int minValue(Node node) {
         int minv = node.data;
         while (node.left != null) {
@@ -190,10 +270,22 @@ public class BST {
         return minv;
     }
 
+    /**
+     * delete node from tree
+     *
+     * @param value
+     */
     public void delete(int value) {
         root = delete(value, root);
     }
 
+    /**
+     * Delete node from tree
+     *
+     * @param value value to be deleted
+     * @param node  starting node
+     * @return
+     */
     private Node delete(int value, Node node) {
         if (node == null) return node;
         else {

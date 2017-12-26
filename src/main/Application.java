@@ -6,6 +6,9 @@ package main;
 public class Application {
     public static void main(String[] args) {
 
+        /**
+         * Binary Search Tree
+         */
         BST bst = new BST();
 
         bst.insert(20);
@@ -17,28 +20,31 @@ public class Application {
         bst.insert(1);
 
         bst.inOrder();
+        bst.preOrder();
+        bst.postOrder();
+        bst.BFS();
+        bst.DFS();
 
-        System.out.println(bst.maxDepth());
-        System.out.println(bst.minDepth());
-
-///////////////////Heap
+        /**
+         * Min-Heap
+         */
 
         Heap heap = new Heap();
         heap.insert(4);
         heap.insert(7);
         heap.insert(9);
         heap.insert(2);
-        for (int a : heap.arr) {
-            // System.out.println(a);
-        }
+
         heap.poll();
         heap.insert(5);
 
-        for (int a : heap.arr) {
-            System.out.println(a);
+        for (int i = 0; i < heap.size; i++) {
+            System.out.println(heap.arr[i]);
         }
 
-//////////////// graph
+        /**
+         * Min-Heap
+         */
 
         Graph graph = new Graph();
         Graph.Node node = new Graph.Node(4);
