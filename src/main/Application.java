@@ -61,6 +61,20 @@ public class Application {
         System.out.println(graph.hasPathBFS(8, 1));
         System.out.println(graph.hasPathDFSStack(8, 1));
 
+        /**
+         * Trie
+         */
 
+        Trie trie = new Trie();
+        trie.insert("berlin");
+        trie.insert("berl");
+        trie.insert("germany");
+        System.out.println(trie.search("berlin"));
+        System.out.println(trie.search("berl"));
+        System.out.println(trie.search("munich"));
+        System.out.println(trie.isPrefix("ber"));
+        System.out.println(trie.wordCount(Trie.root));
+        System.out.println(trie.prefixCount("ber"));
+        System.out.println(trie.prefixCount("xdr"));
     }
 }
