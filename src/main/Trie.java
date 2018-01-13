@@ -5,6 +5,22 @@ package main;
  * Created by abdullahodibat.
  */
 public class Trie {
+
+    public static void main (String[] args){
+
+        Trie trie = new Trie();
+        trie.insert("berlin");
+        trie.insert("berl");
+        trie.insert("germany");
+        System.out.println(trie.search("berlin"));
+        System.out.println(trie.search("berl"));
+        System.out.println(trie.search("munich"));
+        System.out.println(trie.isPrefix("ber"));
+        System.out.println(trie.wordCount(Trie.root));
+        System.out.println(trie.prefixCount("ber"));
+        System.out.println(trie.prefixCount("xdr"));
+    }
+
     public Trie() {
         root = new Node();
     }

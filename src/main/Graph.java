@@ -3,9 +3,27 @@ package main;
 import java.util.*;
 
 /**
- * Created by abdullahodibat on 26.12.17.
+ * Created by abdullahodibat.
  */
 public class Graph {
+    public static void main (String[] args){
+
+        Graph graph = new Graph();
+        Graph.Node node = new Graph.Node(4);
+        Graph.Node node2 = new Graph.Node(6);
+        Graph.Node node3 = new Graph.Node(8);
+        Graph.Node node4 = new Graph.Node(9);
+        Graph.Node node5 = new Graph.Node(1);
+        graph.addEdge(4, 6);
+        graph.addEdge(6, 8);
+        graph.addEdge(8, 9);
+        graph.addEdge(9, 1);
+
+        System.out.println(graph.hasPathDFS(8, 1));
+        System.out.println(graph.hasPathBFS(8, 1));
+        System.out.println(graph.hasPathDFSStack(8, 1));
+
+    }
     static HashMap<Integer, Node> nodes = new HashMap<>();
 
     public static class Node {

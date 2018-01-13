@@ -3,10 +3,26 @@ package main;
 import java.util.Arrays;
 
 /**
- * Created by abdullahodibat on 26.12.17.
+ * Created by abdullahodibat.
  * Implementation of Min-Heap
  */
 public class Heap {
+    public static void main (String[] args){
+
+        Heap heap = new Heap();
+        heap.insert(4);
+        heap.insert(7);
+        heap.insert(9);
+        heap.insert(2);
+
+        heap.poll();
+        heap.insert(5);
+
+        for (int i = 0; i < heap.size; i++) {
+            System.out.println(heap.arr[i]);
+        }
+
+    }
     int capacity;
     int size;
     int[] arr;

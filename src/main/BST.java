@@ -5,10 +5,29 @@ import java.util.Queue;
 import java.util.Stack;
 
 /**
- * Created by abdullahodibat on 25.12.17.
+ * Created by abdullahodibat.
  * Binary Search Tree
  */
 public class BST {
+
+    public static void main (String[] args){
+        BST bst = new BST();
+
+        bst.insert(20);
+        bst.insert(24);
+        bst.insert(4);
+        bst.insert(9);
+        bst.insert(33);
+        bst.insert(3);
+        bst.insert(1);
+
+        bst.inOrder();
+        bst.preOrder();
+        bst.postOrder();
+        bst.BFS();
+        bst.DFS();
+    }
+
     private class Node {
         int data;
         Node left;
