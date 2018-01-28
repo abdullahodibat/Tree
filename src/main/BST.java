@@ -21,6 +21,8 @@ public class BST {
         bst.insert(3);
         bst.insert(1);
 
+        bst.delete(9);
+
         bst.inOrder();
         bst.preOrder();
         bst.postOrder();
@@ -269,8 +271,8 @@ public class BST {
      * @param node starting node
      */
     private void postOrder(Node node) {
-        if (node.right != null) inOrder(node.right);
         if (node.left != null) inOrder(node.left);
+        if (node.right != null) inOrder(node.right);
         System.out.println(node.data + ",");
     }
 
@@ -319,7 +321,7 @@ public class BST {
                     return node.left;
                 else {
                     node.data = minValue(node.right);
-                    node.right = delete(value, node.right);
+                    node.right = delete(node.data, node.right);
                 }
             }
         }
